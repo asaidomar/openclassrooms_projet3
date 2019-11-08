@@ -67,3 +67,32 @@
 ❒ Le temps de présentation est bien géré par l'étudiant 
 
 """
+
+
+"""
+calcium_100g
+cholesterol_100g
+trans-fat_100g
+iron_100g
+vitamin-c_100g
+vitamin-a_100g
+
+voir la répartition / au nom si c'est randaom
+voir si c'est toujours les memes lignes qui sont manquantes
+pour calcium voir les ligne de remplies
+
+Depuis le code barre des aliments avoir les sueils et ce qui manque dans la composition du repas
+
+
+
+3.2 La méthode de Hampel
+Une autre méthode, dite de Hampel, consiste à considérer comme outliers les valeurs en dehors de l’intervalle constitué par la médiane, plus ou moins 3 déviation absolue de médiane :
+
+I=[median–3∗mad;median+3∗mad]
+Avec
+mad=Median Absolute Deviation
+et
+mad=median(|yi–y~|)
+et
+y~=median(y)
+"""
