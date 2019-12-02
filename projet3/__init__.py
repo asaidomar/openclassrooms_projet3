@@ -96,3 +96,23 @@ mad=median(|yi–y~|)
 et
 y~=median(y)
 """
+
+
+
+# TODO:
+# les valeurs negatives trans_fat par ex
+# regarder pk valeur uniques
+# mettre les bons sueils pour les vitamines
+# wrarnig sur les outiliers
+# faire des rapport sur les outliers => les min max
+# faire les boites à mouctaches pour voir les outilers
+
+
+
+# correlation
+# analyse bivariées
+
+
+# depuis des codes barre analyser le contenu du 'repas'
+# visualiser le contenu graphique du repas (les graphiques attendu)
+# Un graphique de chacun de ces types a été réalisé : boxplot, barplot, pie chart, histogramme, scatter plot)
