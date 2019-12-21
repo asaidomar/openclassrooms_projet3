@@ -1,16 +1,26 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# Copyright (c) JOHN PAUL (https://www.johnpaul.com/) all rights reserved.
 # filename : utils
 # date : 2019-12-07-08-59
 # project: openclassroom_projet3
 # author : alisaidomar
 import operator
+import sys
+import matplotlib
+import numpy as np
+import pandas as pd
+import seaborn as sns
 
 # "fat_100g'...
 
-
+def print_version():
+    print("VERSION librairies")
+    print('Python version ' + sys.version)
+    print('Numpy version ' + np.__version__)
+    print('Pandas version ' + pd.__version__)
+    print('Matplotlib version ' + matplotlib.__version__ )
+    print('Seaborn version ' + sns.__version__ )
 
 
 def make_filter(data_, *columns_, inv=True):
