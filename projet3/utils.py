@@ -31,9 +31,9 @@ def make_filter(data_, *columns_, inv=True):
         op = operator.inv
     else:
         op = lambda x: x
-    f = op(data_[columns_[0]].isnull())
+    f = op((data_[columns_[0]].isnull())|(data_[columns_[0]].isna()))
     for c in columns_[1:]:
-        f &= op(data_[c].isnull())
+        f &= op((data_[c].isnull())|(data_[c].isna()))
     return f
 
 
