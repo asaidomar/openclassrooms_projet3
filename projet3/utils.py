@@ -41,21 +41,16 @@ def get_kcal(sample):
     new_sample = sample.copy()
     new_sample["lipide"] = (
             (new_sample["fat_100g"] +
-             new_sample["saturated-fat_100g"] +
-             new_sample["cholesterol_100g"] +
-             new_sample["trans-fat_100g"]) * 9)
+             new_sample["saturated-fat_100g"]) * 9)
     new_sample["glucide"] = (
             (new_sample["sugars_100g"] +
              new_sample["carbohydrates_100g"]) * 4)
     new_sample["proteine"] = (new_sample["proteins_100g"] * 4)
-    new_sample["alcohol"] = (new_sample["alcohol_100g"] * 4)
-    return new_sample[["lipide", "glucide", "proteine", "alcohol"]]
+    return new_sample[["lipide", "glucide", "proteine"]]
 
 
 def get_metrics(data, codes, columns, columns_mg):
     # faire le ratio,
-    quantity = data["serving_quantity"]
-
     for c in columns_mg:
         data[c] *= 1000
     sum_ = data[columns].mean()
