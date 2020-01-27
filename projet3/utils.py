@@ -31,9 +31,9 @@ def make_filter(data_, *columns_, inv=True):
         op = operator.inv
     else:
         op = lambda x: x
-    f = op((data_[columns_[0]].isnull())|(data_[columns_[0]].isna()))
+    f = op((data_[columns_[0]].isnull()) | (data_[columns_[0]].isna()))
     for c in columns_[1:]:
-        f &= op((data_[c].isnull())|(data_[c].isna()))
+        f &= op((data_[c].isnull()) | (data_[c].isna()))
     return f
 
 
@@ -58,7 +58,7 @@ def get_metrics(data, codes, columns, columns_mg):
 
 
 def get_reference(data, columns, columns_mg):
-    reference = data[data["nutrition_grade_fr"] == "a"]
+    reference = data[(data["nutrition_grade_fr"] == "a")]
     # nutrition_score, nutrition_score_uk
     # reference = reference[utils.make_filter(reference, *columns)]
     for c in columns:
@@ -68,7 +68,26 @@ def get_reference(data, columns, columns_mg):
     return reference[columns].mean()
 
 
-def plot_radar(current_data, columns):
+def static_reference():
+    """
+    fat_100g               2.810923
+    saturated-fat_100g     0.538446
+    sugars_100g            3.766528
+    carbohydrates_100g    24.213580
+    proteins_100g          8.408718
+    salt_100g              0.320081
+
+    :return:
+    """
+
+    data = {"proteins_100g": 10, "fat_100g": 3,
+            "saturated-fat_100g": 0.538446,
+            'sugars_100g': 2, 'carbohydrates_100g': 24,
+            "salt_100g": 1.2725}
+    return pd.Series(data=data)
+
+
+def plot_radar(current_data, columns, name="Composition"):
     labels = columns
     fig = plt.figure()
     stats_ = current_data
@@ -81,6 +100,5 @@ def plot_radar(current_data, columns):
     ax.plot(angles, stats, 'o-', linewidth=2)
     ax.fill(angles, stats, alpha=0.25)
     ax.set_thetagrids(angles * 180 / np.pi, labels)
-    name = "Composition"
     ax.set_title(name)
     ax.grid(True)

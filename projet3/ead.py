@@ -22,8 +22,10 @@ results_folder = Path(projet3.__file__).with_name("results")
 data = data_folder / "en.openfoodfacts.org.products.csv"
 data_df = pd.read_csv(data.as_posix(), sep="\t")
 
+
 def get_data():
     return data_df
+
 
 def get_columns_completude():
     # Nous allons calculer par colonnes le taux la complétude sur notre dataset
